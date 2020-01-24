@@ -28,6 +28,7 @@ import java.util.List;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         final WordListAdapter adapter = new WordListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
+        TestLiveData testLiveData = TestLiveData.getInstance();
+        testLiveData.setNumero(new MutableLiveData<>());
         // Get a new or existing ViewModel from the ViewModelProvider.
         mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
 

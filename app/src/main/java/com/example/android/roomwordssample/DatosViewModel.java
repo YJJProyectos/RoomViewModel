@@ -12,12 +12,14 @@ public class DatosViewModel extends AndroidViewModel {
 
     public DatosViewModel(@NonNull Application application) {
         super(application);
-        setNumero(new MutableLiveData<>());
+        this.numero = TestLiveData.getInstance().getNumero();
+
     }
 
 
     public void setNum(int num) {
         this.numero.postValue(num);
+        //this.numero.setValue(num);
     }
 
 
